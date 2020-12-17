@@ -12,6 +12,13 @@ import JourneyInterface
 public enum BaseJourneyAction: String, CaseIterable, JourneyAction {
     case impression
     case click
+    case valueChanged
+    case swipe
+    case doubleTap
+    case longPress
+    case pan
+    case drag
+    case drop
 
     public var description: String {
         rawValue
