@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/DataDog/dd-sdk-ios.git",
         "state": {
           "branch": "master",
-          "revision": "aa5897694ff455200e2d6d29ba5ac691cceba244",
+          "revision": "fef60965918607c0d55f72d88b337edb480d9148",
           "version": null
+        }
+      },
+      {
+        "package": "Kronos",
+        "repositoryURL": "https://github.com/lyft/Kronos.git",
+        "state": {
+          "branch": null,
+          "revision": "fca6a28088028c709df921307032ccb7fcab4bc0",
+          "version": "4.1.1"
         }
       }
     ]
