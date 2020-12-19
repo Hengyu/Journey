@@ -58,6 +58,7 @@ public class DatadogService: NetworkLoggingService {
         #if canImport(Datadog)
         Datadog.initialize(
             appContext: .init(),
+            trackingConsent: .granted,
             configuration: Datadog.Configuration
                 .builderUsing(
                     clientToken: context.token,
