@@ -14,7 +14,7 @@ let package = Package(
         .package(
             name: "Datadog",
             url: "https://github.com/DataDog/dd-sdk-ios.git",
-            .branch("master")
+            .upToNextMajor(from: "1.0.0")
         )
     ],
     targets: [
