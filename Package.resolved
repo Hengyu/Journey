@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/DataDog/dd-sdk-ios.git",
         "state": {
           "branch": null,
-          "revision": "75c66ac3f026ca6a980c4be1062c887efeaa6e9e",
-          "version": "1.5.1"
+          "revision": "7c515bb9ce3358ca0a6e84df53905cc19897faa5",
+          "version": "1.9.0"
         }
       },
       {
-        "package": "Kronos",
-        "repositoryURL": "https://github.com/lyft/Kronos.git",
+        "package": "PLCrashReporter",
+        "repositoryURL": "https://github.com/microsoft/plcrashreporter.git",
         "state": {
           "branch": null,
-          "revision": "fca6a28088028c709df921307032ccb7fcab4bc0",
-          "version": "4.1.1"
+          "revision": "6b27393cad517c067dceea85fadf050e70c4ceaa",
+          "version": "1.10.1"
         }
       }
     ]
