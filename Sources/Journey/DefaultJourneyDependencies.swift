@@ -70,8 +70,10 @@ public class DatadogService: NetworkLoggingService {
     }
 
     public func logEvent(_ name: String, content: String, attributes: [String: Encodable]) {
+        #if canImport(Datadog)
         let log = logger(withName: name)
         log.info(content, attributes: attributes)
+        #endif
     }
 }
 
