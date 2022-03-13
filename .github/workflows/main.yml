@@ -1,0 +1,25 @@
+name: Main
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  main:
+    runs-on: macos-latest
+    steps:
+      - uses: fwal/setup-swift@v1.13.0
+        with:
+          swift-version: "5.5.0"
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: .build
+          key: ${{ runner.os }}-Journey-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-Journey
+      - name: Build
+        run: xcodebuild build -scheme Journey -destination 'platform=iOS Simulator,name=iPhone 13 mini'
+      - name: Test
+        run: xcodebuild test -scheme Journey-Package -destination 'platform=iOS Simulator,name=iPhone 13 mini'
