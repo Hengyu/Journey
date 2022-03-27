@@ -12,13 +12,18 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            name: "Datadog",
             url: "https://github.com/DataDog/dd-sdk-ios.git",
             .upToNextMajor(from: "1.0.0")
         )
     ],
     targets: [
-        .target(name: "Journey", dependencies: ["Datadog", "JourneyInterface"]),
+        .target(
+            name: "Journey",
+            dependencies: [
+                .product(name: "Datadog", package: "dd-sdk-ios"),
+                "JourneyInterface"
+            ]
+        ),
         .target(name: "JourneyInterface"),
         .testTarget(name: "JourneyTests", dependencies: ["Journey", "JourneyInterface"])
     ]
