@@ -23,4 +23,4 @@
 //  SOFTWARE.
 //
 
-public protocol JourneyAction: Codable, CustomStringConvertible { }
+public protocol JourneyAction: CaseIterable, Codable, CustomStringConvertible, Equatable, Sendable { }

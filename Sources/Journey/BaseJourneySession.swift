@@ -26,7 +26,7 @@
 import Foundation
 import JourneyInterface
 
-public struct BaseJourneySession: JourneySession {
+public struct BaseJourneySession: Equatable, Sendable, JourneySession {
     public let uuid: UUID
 
     public static let current: BaseJourneySession = .init()

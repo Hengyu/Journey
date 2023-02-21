@@ -25,4 +25,4 @@
 
 import Foundation
 
-public protocol JourneyVersioning: CaseIterable, Codable, CustomStringConvertible { }
+public protocol JourneyVersioning: CaseIterable, Codable, CustomStringConvertible, Equatable, Sendable { }

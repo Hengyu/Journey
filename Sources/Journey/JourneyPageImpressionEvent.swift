@@ -26,16 +26,16 @@
 import Foundation
 import JourneyInterface
 
-public struct JourneyPageImpressionEvent: JourneyPageEvent {
+public struct JourneyPageImpressionEvent: JourneyPageEvent, Codable, Equatable, Sendable {
     public let name: String
-    public let page: BaseJourneyPage
+    public let pageDescription: String
     public let action: BaseJourneyAction
     public let context: BaseJourneyContext
     public let version: JourneyVersion
 
-    public init(page: BaseJourneyPage, version: JourneyVersion = .version1) {
+    public init(page: any JourneyPage, version: JourneyVersion = .version1) {
         self.name = "\(page.description.capitalized)PageImpressionEvent"
-        self.page = page
+        self.pageDescription = page.description
         self.action = .impression
         self.context = .init()
         self.version = version
@@ -47,5 +47,11 @@ public struct JourneyPageImpressionEvent: JourneyPageEvent {
             "page": page.description,
             "context": context.description
         ]
+    }
+}
+
+extension JourneyPageImpressionEvent {
+    public var page: BaseJourneyPage {
+        .init(rawValue: pageDescription)!
     }
 }

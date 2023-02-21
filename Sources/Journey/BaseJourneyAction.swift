@@ -26,7 +26,7 @@
 import Foundation
 import JourneyInterface
 
-public enum BaseJourneyAction: String, CaseIterable, JourneyAction {
+public enum BaseJourneyAction: String, JourneyAction {
     case impression
     case click
     case valueChanged

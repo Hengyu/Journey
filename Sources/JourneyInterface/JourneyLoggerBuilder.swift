@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol NetworkLoggingService {
+public protocol NetworkLoggingService: Sendable {
 
     func initialize()
     func logEvent(_ name: String, content: String, attributes: [String: Encodable])
@@ -36,7 +36,7 @@ public protocol NetworkLoggingServiceProviding {
     var networkLoggingService: NetworkLoggingService { get }
 }
 
-public protocol OndiskLoggingService {
+public protocol OndiskLoggingService: Sendable {
 
     func logEvent(_ name: String, content: String, attributes: [String: Encodable])
 }

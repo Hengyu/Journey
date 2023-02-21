@@ -26,7 +26,7 @@
 import Foundation
 import JourneyInterface
 
-public struct BaseJourneyContext: JourneyContext {
+public struct BaseJourneyContext: Equatable, Sendable, JourneyContext {
     private let _session: BaseJourneySession
     public let date: Date
     public var session: JourneySession {

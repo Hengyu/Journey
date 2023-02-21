@@ -26,7 +26,7 @@
 import Foundation
 import JourneyInterface
 
-public final class BaseJourneyLogger: JourneyLogger {
+public final class BaseJourneyLogger: JourneyLogger, Sendable {
 
     private let networkService: NetworkLoggingService
     private let ondiskService: OndiskLoggingService

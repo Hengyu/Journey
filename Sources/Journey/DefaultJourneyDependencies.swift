@@ -30,7 +30,7 @@ import Datadog
 import Foundation
 import JourneyInterface
 
-public struct DatadogContext {
+public struct DatadogContext: Codable, Equatable, Hashable, Sendable {
     public let serviceName: String
     public let environment: String
     public let token: String
@@ -44,7 +44,7 @@ public struct DatadogContext {
     }
 }
 
-public class DatadogService: NetworkLoggingService {
+public final class DatadogService: NetworkLoggingService, @unchecked Sendable {
 
     #if canImport(Datadog)
     private var loggers: [String: Logger] = [:]
@@ -94,14 +94,14 @@ public class DatadogService: NetworkLoggingService {
     }
 }
 
-public class DefaultOndiskService: OndiskLoggingService {
+public final class DefaultOndiskService: OndiskLoggingService, Sendable {
 
     public func logEvent(_ name: String, content: String, attributes: [String: Encodable]) {
         debugPrint("log event \(name), content: \(content), attributes: \(attributes)")
     }
 }
 
-public final class DefaultJourneyDependencies: JourneyDependencies {
+public final class DefaultJourneyDependencies: JourneyDependencies, Sendable {
 
     public let datadogContext: DatadogContext
 
