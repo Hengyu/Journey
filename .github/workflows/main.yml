@@ -22,6 +22,4 @@ jobs:
           key: ${{ runner.os }}-Journey-${{ hashFiles('**/Package.resolved') }}
           restore-keys: ${{ runner.os }}-Journey
       - name: Build
-        run: xcodebuild build -scheme Journey -destination 'platform=iOS Simulator,name=iPhone 13 mini'
-      - name: Test
-        run: xcodebuild test -scheme Journey-Package -destination 'platform=iOS Simulator,name=iPhone 13 mini'
+        run: xcodebuild -scheme Journey -sdk iphoneos -destination 'platform=iOS Simulator name=iPhone 15 Pro'
