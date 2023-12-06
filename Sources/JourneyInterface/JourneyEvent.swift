@@ -49,7 +49,7 @@ extension JourneyEvent {
     public var attributes: [String: Encodable] {
         [
             "action": action.description,
-            "context": context.description
+            "context": context.description,
         ]
     }
 }

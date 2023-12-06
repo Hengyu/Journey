@@ -37,7 +37,7 @@ extension JourneyPageEvent {
         [
             "action": action.description,
             "page": page.description,
-            "context": context.description
+            "context": context.description,
         ]
     }
 }

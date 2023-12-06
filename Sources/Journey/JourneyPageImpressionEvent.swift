@@ -45,7 +45,7 @@ public struct JourneyPageImpressionEvent: JourneyPageEvent, Codable, Equatable, 
         [
             "action": action.description,
             "page": page.description,
-            "context": context.description
+            "context": context.description,
         ]
     }
 }
