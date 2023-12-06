@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Journey",
-    platforms: [.iOS(.v11), .macCatalyst(.v13), .tvOS(.v11)],
+    platforms: [.iOS(.v12), .macCatalyst(.v13), .tvOS(.v12)],
     products: [
         .library(name: "Journey", targets: ["Journey"]),
         .library(name: "JourneyInterface", targets: ["JourneyInterface"])
