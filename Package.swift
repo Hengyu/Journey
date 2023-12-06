@@ -8,23 +8,21 @@ let package = Package(
     platforms: [.iOS(.v12), .macCatalyst(.v13), .tvOS(.v12)],
     products: [
         .library(name: "Journey", targets: ["Journey"]),
-        .library(name: "JourneyInterface", targets: ["JourneyInterface"])
+        .library(name: "JourneyInterface", targets: ["JourneyInterface"]),
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/DataDog/dd-sdk-ios.git",
-            .upToNextMajor(from: "1.0.0")
-        )
+        .package(url: "https://github.com/DataDog/dd-sdk-ios.git", from: "2.0.0")
     ],
     targets: [
         .target(
             name: "Journey",
             dependencies: [
-                .product(name: "Datadog", package: "dd-sdk-ios"),
-                "JourneyInterface"
+                .product(name: "DatadogCore", package: "dd-sdk-ios"),
+                .product(name: "DatadogLogs", package: "dd-sdk-ios"),
+                "JourneyInterface",
             ]
         ),
         .target(name: "JourneyInterface"),
-        .testTarget(name: "JourneyTests", dependencies: ["Journey", "JourneyInterface"])
+        .testTarget(name: "JourneyTests", dependencies: ["Journey", "JourneyInterface"]),
     ]
 )

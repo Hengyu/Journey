@@ -23,8 +23,9 @@
 //  SOFTWARE.
 //
 
-#if canImport(Datadog)
-import Datadog
+#if canImport(DatadogCore)
+import DatadogCore
+import DatadogLogs
 #endif
 
 import Foundation
@@ -46,19 +47,21 @@ public struct DatadogContext: Codable, Equatable, Hashable, Sendable {
 
 public final class DatadogService: NetworkLoggingService, @unchecked Sendable {
 
-    #if canImport(Datadog)
-    private var loggers: [String: Logger] = [:]
+    #if canImport(DatadogCore)
+    private var loggers: [String: LoggerProtocol] = [:]
 
-    private func logger(withName name: String) -> Logger {
+    private func logger(withName name: String) -> LoggerProtocol {
         if let logger = loggers[name] {
             return logger
         } else {
-            let logger = Logger.builder
-                .sendNetworkInfo(context.sendNetworkInfo)
-                .sendLogsToDatadog(true)
-                .set(loggerName: name)
-                .set(serviceName: context.serviceName)
-                .build()
+            let logger = Logger.create(
+                with: .init(
+                    service: context.serviceName,
+                    name: name,
+                    networkInfoEnabled: context.sendNetworkInfo,
+                    consoleLogFormat: nil
+                )
+            )
             loggers[name] = logger
             return logger
         }
@@ -72,22 +75,17 @@ public final class DatadogService: NetworkLoggingService, @unchecked Sendable {
     }
 
     public func initialize() {
-        #if canImport(Datadog)
+        #if canImport(DatadogCore)
         Datadog.initialize(
-            appContext: .init(),
-            trackingConsent: .granted,
-            configuration: Datadog.Configuration
-                .builderUsing(
-                    clientToken: context.token,
-                    environment: context.environment
-                )
-                .build()
+            with: .init(clientToken: context.token, env: context.environment, service: context.serviceName),
+            trackingConsent: .granted
         )
+        Logs.enable()
         #endif
     }
 
     public func logEvent(_ name: String, content: String, attributes: [String: Encodable]) {
-        #if canImport(Datadog)
+        #if canImport(DatadogCore)
         let log = logger(withName: name)
         log.info(content, attributes: attributes)
         #endif
