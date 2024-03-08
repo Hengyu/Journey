@@ -26,11 +26,11 @@
 import Foundation
 import JourneyInterface
 
-open class BaseJourneyPage: JourneyPage {
+public struct BaseJourneyPage: JourneyPage {
 
     public let rawValue: String
 
-    public required init?(rawValue: String) {
+    public init(rawValue: String) {
         self.rawValue = rawValue
     }
 }

@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol JourneyContext: Codable, CustomStringConvertible {
+public protocol JourneyContext: Codable, CustomStringConvertible, Sendable {
     var session: JourneySession { get }
     var date: Date { get }
 }

@@ -29,7 +29,7 @@ public protocol AttributesExpressable {
     var attributes: [String: Encodable] { get }
 }
 
-public protocol JourneyEvent: AttributesExpressable, CustomStringConvertible {
+public protocol JourneyEvent: AttributesExpressable, CustomStringConvertible, Sendable {
     associatedtype Action: JourneyAction
     associatedtype Context: JourneyContext
     associatedtype Version: JourneyVersioning

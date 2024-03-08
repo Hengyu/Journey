@@ -52,6 +52,6 @@ public struct JourneyPageImpressionEvent: JourneyPageEvent, Codable, Equatable, 
 
 extension JourneyPageImpressionEvent {
     public var page: BaseJourneyPage {
-        .init(rawValue: pageDescription)!
+        .init(rawValue: pageDescription)
     }
 }

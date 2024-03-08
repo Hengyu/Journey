@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol JourneyPage: RawRepresentable, CustomStringConvertible, Codable where RawValue == String { }
+public protocol JourneyPage: RawRepresentable, CustomStringConvertible, Codable, Sendable where RawValue == String { }
 
 extension JourneyPage {
 

@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol JourneySession: Codable, CustomStringConvertible {
+public protocol JourneySession: Codable, CustomStringConvertible, Sendable {
 
     var uuid: UUID { get }
 }

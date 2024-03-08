@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol JourneyLogger {
+public protocol JourneyLogger: Sendable {
 
     func logEvent<T: JourneyEvent>(_ event: T)
 }
