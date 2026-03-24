@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "JourneyInterface", targets: ["JourneyInterface"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/DataDog/dd-sdk-ios.git", from: "2.0.0")
+        .package(url: "https://github.com/DataDog/dd-sdk-ios.git", from: "3.0.0")
     ],
     targets: [
         .target(
