@@ -1,12 +1,13 @@
 {
+  "originHash" : "afcec072e2024ff77d0c1807985e0dbe21ff6fec75203ccdab3886c5bd19e042",
   "pins" : [
     {
       "identity" : "dd-sdk-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DataDog/dd-sdk-ios.git",
       "state" : {
-        "revision" : "80fe7e5fe83d2184b50e1e0ccbb3fa6b0051c33d",
-        "version" : "3.8.2"
+        "revision" : "66439c0209dcca8a0b70df03ee34b4dd2405bcc7",
+        "version" : "3.10.0"
       }
     },
     {
@@ -37,5 +38,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
